@@ -5,10 +5,10 @@ import TabButton from "./components/TabButton.jsx";
 import { CORE_CONCEPTS } from "./data.js";
 
 function App() {
-  const [] = useState("Please click a button");
+  const [selectedTopic, setSelectedTopic] = useState("Please click a button");
 
   const handleClick = (selectedButon) => {
-    console.log(selectedButon);
+    setSelectedTopic(selectedButon);
   };
 
   return (
@@ -38,7 +38,7 @@ function App() {
             <TabButton onSelect={() => handleClick("state")}>State</TabButton>
             <TabButton onSelect={() => handleClick("props")}>Props</TabButton>
           </menu>
-          Dynamic Content
+          {selectedTopic}
         </section>
       </main>
     </div>
