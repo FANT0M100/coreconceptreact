@@ -1,9 +1,16 @@
+import { useState } from "react";
 import CoreConcept from "./components/CoreConcept";
 import Header from "./components/Header";
 import TabButton from "./components/TabButton.jsx";
 import { CORE_CONCEPTS } from "./data.js";
 
 function App() {
+  const [] = useState("Please click a button");
+
+  const handleClick = (selectedButon) => {
+    console.log(selectedButon);
+  };
+
   return (
     <div>
       <Header />
@@ -24,11 +31,14 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton>Components</TabButton>
-            <TabButton>Jsx</TabButton>
-            <TabButton>State</TabButton>
-            <TabButton>Props</TabButton>
+            <TabButton onSelect={() => handleClick("components")}>
+              Components
+            </TabButton>
+            <TabButton onSelect={() => handleClick("jsx")}>Jsx</TabButton>
+            <TabButton onSelect={() => handleClick("state")}>State</TabButton>
+            <TabButton onSelect={() => handleClick("props")}>Props</TabButton>
           </menu>
+          Dynamic Content
         </section>
       </main>
     </div>
